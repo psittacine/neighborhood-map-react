@@ -5,6 +5,13 @@ import { load_google_maps, load_places } from "./Utils";
 import MapContainer from "./components/MapContainer";
 
 class App extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			query: ""
+		};
+	}
+
 	componentDidMount() {
 		let googleMapsPromise = load_google_maps();
 		let placesPromise = load_places();
@@ -42,7 +49,7 @@ class App extends Component {
 				// Push the marker to the array of markers.
 				this.markers.push(marker);
 
-        // Content of InfoWindow.
+				// Content of InfoWindow.
 				let infoWindowContent = `
           <div className="infowindow-content">
             <h3>${place.name}</h3>
@@ -70,13 +77,33 @@ class App extends Component {
 		});
 	}
 
+	// Loop thru the markers and filter for places that match the query string.
+	filterPlaces(query) {
+		// console.log(query);
+		this.markers.forEach(marker => {
+			// console.log(marker);
+			// Toggle marker visibility per query match.
+			marker.name.toLowerCase().includes(query.toLowerCase())
+				? marker.setVisible(true)
+				: marker.setVisible(false);
+		});
+
+		this.setState({ query });
+	}
+
 	render() {
 		return (
 			<div className="App">
-				<Menu>
-					<p>Sample Item 1</p>
-					<p>Sample Item 2</p>
-					<p>Sample Item 3</p>
+				<Menu isOpen>
+					<input
+						type="search"
+						placeholder="Filter by Name"
+						value={this.state.query}
+						onChange={event => {
+							this.filterPlaces(event.target.value);
+						}}
+						className="places-filter"
+					/>
 				</Menu>
 				<MapContainer />
 			</div>
