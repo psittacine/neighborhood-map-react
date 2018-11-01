@@ -16,6 +16,7 @@ class App extends Component {
 
 			this.google = google;
 			this.markers = [];
+			this.infowindow = new google.maps.InfoWindow();
 
 			this.map = new google.maps.Map(document.getElementById("map"), {
 				// Center map on DFW Metroplex
@@ -26,7 +27,7 @@ class App extends Component {
 				zoom: 10
 			});
 
-			// for each place, create a marker on the map with place info
+			// For each place, create a marker on the map with place info.
 			places.forEach(place => {
 				let marker = new google.maps.Marker({
 					position: { lat: place.position.lat, lng: place.position.lng },
@@ -36,6 +37,34 @@ class App extends Component {
 					address: place.address,
 					website: place.website,
 					animation: google.maps.Animation.DROP
+				});
+
+				// Push the marker to the array of markers.
+				this.markers.push(marker);
+
+        // Content of InfoWindow.
+				let infoWindowContent = `
+          <div className="infowindow-content">
+            <h3>${place.name}</h3>
+            <p><address>${place.address}</address></p>
+            <p>Website: <a href="${place.website}" target="_blank">${place.website}</a></p>
+            <p>Source: Myjson API</p>
+          </div>`;
+
+				// Open InfoWindow and populate with content when marker is clicked.
+				marker.addListener("click", () => {
+					if (marker.getAnimation() !== null) {
+						marker.setAnimation(null);
+					} else {
+						marker.setAnimation(google.maps.Animation.BOUNCE);
+					}
+					setTimeout(() => {
+						marker.setAnimation(null);
+					}, 2000);
+				});
+				google.maps.event.addListener(marker, "click", () => {
+					this.infowindow.setContent(infoWindowContent);
+					this.infowindow.open(this.map, marker);
 				});
 			});
 		});
