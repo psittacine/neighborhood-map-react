@@ -60,14 +60,10 @@ class App extends Component {
 
 				// Open InfoWindow and populate with content, and animate marker, when marker is clicked.
 				marker.addListener("click", () => {
-					if (marker.getAnimation() !== null) {
-						marker.setAnimation(null);
-					} else {
-						marker.setAnimation(google.maps.Animation.BOUNCE);
-					}
+					marker.setAnimation(google.maps.Animation.BOUNCE);
 					setTimeout(() => {
 						marker.setAnimation(null);
-					}, 2000);
+          }, 2000);
 				});
 				google.maps.event.addListener(marker, "click", () => {
 					this.infowindow.setContent(infoWindowContent);
