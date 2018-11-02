@@ -19,7 +19,7 @@ class App extends Component {
 		Promise.all([googleMapsPromise, placesPromise]).then(values => {
 			// console.log(values);
 			let google = values[0];
-			let places = values[1];
+			this.places = values[1];
 
 			this.google = google;
 			this.markers = [];
@@ -35,7 +35,7 @@ class App extends Component {
 			});
 
 			// For each place, create a marker on the map with place info.
-			places.forEach(place => {
+			this.places.forEach(place => {
 				let marker = new google.maps.Marker({
 					position: { lat: place.position.lat, lng: place.position.lng },
 					map: this.map,
@@ -73,7 +73,10 @@ class App extends Component {
 					this.infowindow.setContent(infoWindowContent);
 					this.infowindow.open(this.map, marker);
 				});
-			});
+      });
+
+      this.setState({ filteredPlaces: this.places });
+
 		});
 	}
 
@@ -104,6 +107,19 @@ class App extends Component {
 						}}
 						className="places-filter"
 					/>
+
+          <ul className="places-list">
+          {
+            this.state.filteredPlaces && this.state.filteredPlaces.length > 0 && this.state.filteredPlaces.map((place, index) => (
+              <li className="place-list-item" key={place.id}>
+                <button className="place-list-item-button" key={index}>
+                  {place.name}
+                </button>
+              </li>
+            ))
+          }
+          </ul>
+
 				</Menu>
 				<MapContainer />
 			</div>
