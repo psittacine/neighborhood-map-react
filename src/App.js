@@ -82,7 +82,9 @@ class App extends Component {
 
 	// Loop thru the markers and filter for places that match the query string.
 	filterPlaces(query) {
-		// console.log(query);
+    // console.log(query);
+    // Filter place list per query.
+    let f = this.places.filter(place => place.name.toLowerCase().includes(query.toLowerCase()));
 		this.markers.forEach(marker => {
 			// console.log(marker);
 			// Toggle marker visibility per query match.
@@ -91,7 +93,8 @@ class App extends Component {
 				: marker.setVisible(false);
 		});
 
-		this.setState({ query });
+    // Filtered places is the result of f filter, update query input.
+		this.setState({ filteredPlaces: f, query });
 	}
 
 	render() {
@@ -111,7 +114,7 @@ class App extends Component {
           <ul className="places-list">
           {
             this.state.filteredPlaces && this.state.filteredPlaces.length > 0 && this.state.filteredPlaces.map((place, index) => (
-              <li className="place-list-item" key={place.id}>
+              <li className="place-list-item" key={index}>
                 <button className="place-list-item-button" key={index}>
                   {place.name}
                 </button>
