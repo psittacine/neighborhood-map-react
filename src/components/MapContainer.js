@@ -4,7 +4,7 @@ class MapContainer extends Component {
 	render() {
 		return (
 			<main>
-				<div id="map" role="application" aria-hidden="true" />
+				<div id="map" role="application" aria-label="Map" />
 			</main>
 		);
 	}

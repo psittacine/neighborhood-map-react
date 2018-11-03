@@ -12,6 +12,7 @@ class PlaceList extends Component {
 						this.props.filterPlaces(event.target.value);
 					}}
 					className="places-filter"
+					aria-label="Filter by Name"
 				/>
 				<ul className="places-list">
 					{this.props.filteredPlaces &&
