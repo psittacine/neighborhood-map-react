@@ -1,109 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Oxygen');
 
-/*
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(360deg);
-  }
-}
- */
-
-/*
- * react-burger-menu START
- */
-
-/* Position and sizing of burger button */
-.bm-burger-button {
-  position: fixed;
-  /* width: 36px; */
-  /* height: 30px; */
-  /* left: 36px; */
-  /* top: 36px; */
-  width: 2.25rem;
-  height: 1.875rem;
-  left: 1rem;
-  top: 1rem;
-}
-
-/* Color/shape of burger icon bars */
-.bm-burger-bars {
-  /* background: #373a47; */
-  background: #f7b247;
-}
-
-/* Position and sizing of clickable cross button */
-.bm-cross-button {
-  height: 24px;
-  width: 24px;
-}
-
-/* Color/shape of close button cross */
-.bm-cross {
-  /* background: #bdc3c7; */
-  background: #f7b247;
-}
-
-/* General sidebar styles */
-.bm-menu {
-  /* background: #373a47; */
-  background: #443219;
-  /* padding: 2.5em 1.5em 0; */
-  padding: 2.5em 1em 0;
-  font-size: 1.15em;
-}
-
-/* Morph shape necessary with bubble or elastic */
-.bm-morph-shape {
-  fill: #373a47;
-}
-
-/* Wrapper for item list */
-.bm-item-list {
-  color: #b8b7ad;
-  /* padding: 0.8em; */
-}
-
-/* Individual item */
-.bm-item {
-  display: inline-block;
-}
-
-/* Styling of overlay */
-.bm-overlay {
-  background: rgba(0, 0, 0, 0) !important;
-}
-
-/*
- * react-burger-menu END
- */
+/* ------------------------------------------
+ * Global
+ * ------------------------------------------ */
 
 body {
   font-family: 'Oxygen', sans-serif;
@@ -127,10 +26,10 @@ body {
 
 #map {
   width: 100%;
-  /* height: 100vh; */
   height: calc(100vh - 3.875rem);
 }
 
+/* Filter input text box */
 .places-filter {
   width: 100%;
   padding: 0.67em;
@@ -158,26 +57,87 @@ body {
   font-family: 'Oxygen', sans-serif;
 }
 
+/* ------------------------------------------
+ * react-burger-menu
+ * ------------------------------------------ */
+
+/* Position and sizing of burger button */
+.bm-burger-button {
+  position: fixed;
+  width: 2.25rem;
+  height: 1.875rem;
+  left: 1rem;
+  top: 1rem;
+}
+
+/* Color/shape of burger icon bars */
+.bm-burger-bars {
+  background: #f7b247;
+}
+
+/* Position and sizing of clickable cross button */
+.bm-cross-button {
+  height: 24px;
+  width: 24px;
+}
+
+/* Color/shape of close button cross */
+.bm-cross {
+  background: #f7b247;
+}
+
+/* General sidebar styles */
+.bm-menu {
+  background: #443219;
+  padding: 2.5em 1em 0;
+  font-size: 1.15em;
+}
+
+/* Wrapper for item list */
+.bm-item-list {
+  color: #b8b7ad;
+}
+
+/* Individual item */
+.bm-item {
+  display: inline-block;
+}
+
+/* Styling of overlay */
+.bm-overlay {
+  background: rgba(0, 0, 0, 0) !important;
+}
+
+/* ------------------------------------------
+ * Responsive
+ * ------------------------------------------ */
+
 @media screen and (max-width: 550px) {
+
   /* Header */
   .site-title-container {
     height: 2.94rem;
     line-height: 2.94rem;
   }
+
   /* Header text */
   .site-title {
     font-size: 0.94rem;
   }
+
   .bm-burger-button {
     width: 1.13rem;
     height: 0.94rem;
   }
+
   #map {
     height: calc(100vh - 2.94rem);
   }
+
   .places-filter {
     font-size: 0.82rem;
   }
+
   .place-list-item-button {
     font-size: 0.82rem;
   }
