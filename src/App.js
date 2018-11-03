@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./App.css";
 import { slide as Menu } from "react-burger-menu";
 import { load_google_maps, load_places } from "./Utils";
+import Header from './components/Header';
 import PlaceList from './components/PlaceList';
 import MapContainer from "./components/MapContainer";
 
@@ -124,6 +125,7 @@ class App extends Component {
 	render() {
 		return (
 			<div className="App">
+				<Header />
 				<Menu isOpen>
 					<PlaceList
 						clickListItem={this.clickListItem}
