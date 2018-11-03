@@ -19,7 +19,6 @@ class App extends Component {
 		let placesPromise = load_places();
 
 		Promise.all([googleMapsPromise, placesPromise]).then(values => {
-			// console.log(values);
 			let google = values[0];
 			this.places = values[1];
 
@@ -79,7 +78,6 @@ class App extends Component {
 
 	clickListItem = (place) => {
 		let marker = this.markers.filter(m => m.id === place.id)[0];
-		// console.log(marker);
 
 		// Content of InfoWindow.
 		let infoWindowContent = `
@@ -103,15 +101,11 @@ class App extends Component {
 
 	// Loop thru the markers and filter for places that match the query string.
 	filterPlaces = (query) => {
-    	// console.log(query);
-
 		// Filter place list per query.
 		let f = this.places.filter(place =>
 			place.name.toLowerCase().includes(query.toLowerCase())
 		);
 		this.markers.forEach(marker => {
-			// console.log(marker);
-
 			// Toggle marker visibility per query match.
 			marker.name.toLowerCase().includes(query.toLowerCase())
 				? marker.setVisible(true)
@@ -126,7 +120,7 @@ class App extends Component {
 		return (
 			<div className="App">
 				<Header />
-				<Menu isOpen>
+				<Menu>
 					<PlaceList
 						clickListItem={this.clickListItem}
 						filterPlaces={this.filterPlaces}
