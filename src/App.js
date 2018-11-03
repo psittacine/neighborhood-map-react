@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./App.css";
 import { slide as Menu } from "react-burger-menu";
 import { load_google_maps, load_places } from "./Utils";
+import PlaceList from './components/PlaceList';
 import MapContainer from "./components/MapContainer";
 
 class App extends Component {
@@ -51,19 +52,19 @@ class App extends Component {
 
 				// Content of InfoWindow.
 				let infoWindowContent = `
-          <div className="infowindow-content">
-            <h3>${place.name}</h3>
-            <p><address>${place.address}</address></p>
-            <p>Website: <a href="${place.website}" target="_blank">${place.website}</a></p>
-            <p>Source: Myjson API</p>
-          </div>`;
+					<div className="infowindow-content">
+						<h3>${place.name}</h3>
+						<p><address>${place.address}</address></p>
+						<p>Website: <a href="${place.website}" target="_blank">${place.website}</a></p>
+						<p>Source: Myjson API</p>
+					</div>`;
 
 				// Open InfoWindow and populate with content, and animate marker, when marker is clicked.
 				marker.addListener("click", () => {
 					marker.setAnimation(google.maps.Animation.BOUNCE);
 					setTimeout(() => {
 						marker.setAnimation(null);
-          }, 2000);
+    				}, 2000);
 				});
 				google.maps.event.addListener(marker, "click", () => {
 					this.infowindow.setContent(infoWindowContent);
@@ -75,18 +76,18 @@ class App extends Component {
 		});
 	}
 
-	clickListItem = place => {
+	clickListItem = (place) => {
 		let marker = this.markers.filter(m => m.id === place.id)[0];
 		// console.log(marker);
 
 		// Content of InfoWindow.
 		let infoWindowContent = `
-    <div className="infowindow-content">
-      <h3>${place.name}</h3>
-      <p><address>${place.address}</address></p>
-      <p>Website: <a href="${place.website}" target="_blank">${place.website}</a></p>
-      <p>Source: Myjson API</p>
-    </div>`;
+			<div className="infowindow-content">
+				<h3>${place.name}</h3>
+				<p><address>${place.address}</address></p>
+				<p>Website: <a href="${place.website}" target="_blank">${place.website}</a></p>
+				<p>Source: Myjson API</p>
+			</div>`;
 
 		// Animate marker when list item is clicked.
 		marker.setAnimation(this.google.maps.Animation.BOUNCE);
@@ -100,15 +101,15 @@ class App extends Component {
 	};
 
 	// Loop thru the markers and filter for places that match the query string.
-	filterPlaces(query) {
-    // console.log(query);
+	filterPlaces = (query) => {
+    	// console.log(query);
 
 		// Filter place list per query.
 		let f = this.places.filter(place =>
 			place.name.toLowerCase().includes(query.toLowerCase())
 		);
 		this.markers.forEach(marker => {
-      // console.log(marker);
+			// console.log(marker);
 
 			// Toggle marker visibility per query match.
 			marker.name.toLowerCase().includes(query.toLowerCase())
@@ -124,33 +125,11 @@ class App extends Component {
 		return (
 			<div className="App">
 				<Menu isOpen>
-					<input
-						type="search"
-						placeholder="Filter by Name"
-						value={this.state.query}
-						onChange={event => {
-							this.filterPlaces(event.target.value);
-						}}
-						className="places-filter"
+					<PlaceList
+						clickListItem={this.clickListItem}
+						filterPlaces={this.filterPlaces}
+						filteredPlaces={this.state.filteredPlaces}
 					/>
-
-					<ul className="places-list">
-						{this.state.filteredPlaces &&
-							this.state.filteredPlaces.length > 0 &&
-							this.state.filteredPlaces.map((place, index) => (
-								<li className="place-list-item" key={place.id}>
-									<button
-										className="place-list-item-button"
-										key={place.id}
-										onClick={() => {
-											this.clickListItem(place);
-										}}
-									>
-										{place.name}
-									</button>
-								</li>
-							))}
-					</ul>
 				</Menu>
 				<MapContainer />
 			</div>
