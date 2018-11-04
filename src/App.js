@@ -15,6 +15,10 @@ class App extends Component {
 	}
 
 	componentDidMount() {
+		window.gm_authFailure = () => {
+			alert('Google Maps authentication error.');
+		}
+
 		let googleMapsPromise = load_google_maps();
 		let placesPromise = load_places();
 
