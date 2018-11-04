@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./App.css";
 import { slide as Menu } from "react-burger-menu";
 import { load_google_maps, load_places } from "./Utils";
+import ErrorBoundary from "./components/ErrorBoundary";
 import Header from './components/Header';
 import PlaceList from './components/PlaceList';
 import MapContainer from "./components/MapContainer";
@@ -131,7 +132,9 @@ class App extends Component {
 						filteredPlaces={this.state.filteredPlaces}
 					/>
 				</Menu>
-				<MapContainer />
+				<ErrorBoundary>
+					<MapContainer />
+				</ErrorBoundary>
 			</div>
 		);
 	}
