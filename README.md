@@ -1,44 +1,50 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# MyReads:  Neighborhood Map (React)
 
-## Available Scripts
+## Project for Udacity's [Front-End Web Developer Nanodegree Program](https://www.udacity.com/course/front-end-web-developer-nanodegree--nd001)
 
-In the project directory, you can run:
+<!-- TODO:  Deploy project on live server; add link here. -->
+<!-- :link: [View Live Project](https://psittacine.github.io/neighborhood-map-react/) -->
 
-### `npm start`
+#### Project Overview
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+You will develop a single-page application using React featuring a map of your neighborhood or a neighborhood you would like to visit. You will then add additional functionality to this application, including: map markers to identify popular locations or places you’d like to visit, a search function to easily discover these locations, and a list view to support simple browsing of all locations. You will then research and implement third-party APIs that provide additional information about each of these locations (such as StreetView images, Wikipedia articles, Yelp reviews, etc).
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+You will learn how design patterns and UI libraries like React assist in developing a manageable codebase. You’ll then explore how frameworks can decrease the time required developing an application and provide a number of utilities for you to use. Finally, you’ll implement third-party APIs that provide valuable data sets that can improve the quality of your application.
 
-### `npm test`
+---
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Instructions:
 
-### `npm run build`
+* Go to the project directory in the terminal.
+* Run the command `yarn install` to install all project dependencies.
+* Run the command `yarn start` to run the app in the development mode.
+* Open [http://localhost:3000](http://localhost:3000) to view the app in the browser.
+* Run the command `yarn build` to create a production build.
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+#### Notes
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+* This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+* The default `create-react-app` **Service Worker** is used in this app, and only works when running a production build.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+#### APIs
 
-### `npm run eject`
+* [Google Maps API](https://cloud.google.com/maps-platform/) -- map source
+* [Myjson API](https://api.myjson.com/bins/xvv5m) -- location data source
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+#### Dependencies
+* [react](https://github.com/facebook/react) React is a JavaScript library for building user interfaces.
+* [react-burger-menu](https://github.com/negomi/react-burger-menu) An off-canvas sidebar component with a collection of effects and styles using CSS transitions and SVG path animations.
+* [react-dom](https://github.com/facebook/react) React package for working with the DOM.
+* [react-scripts](https://github.com/facebook/create-react-app) Configuration and scripts for Create React App.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### References:
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+* Stack Overflow: [Using Google Maps in a React component](https://stackoverflow.com/questions/48493960/using-google-map-in-react-component)
+*  Article: [How to Use the JavaScript Fetch API to Get JSON Data](https://www.taniarascia.com/how-to-use-the-javascript-fetch-api-to-get-json-data/)
+* Webinar: [Coding Session - Google Maps With React JS, with Ryan Waite](https://www.youtube.com/watch?v=5J6fs_BlVC0)
+* Webinar: [Tutorial Requests: FEND Project 7 - Walk Through & Complete Guide (LONG), with Ryan Waite](https://www.youtube.com/watch?v=LvQe7xrUh7I)
+* Webinar: [FEND P7 Walkthrough, with Doug Brown](https://www.youtube.com/watch?v=NVAVLCJwAAo)
+* Webinar: [Neighborhood Map Walk-through Playlist, with Forrest Walker](https://www.youtube.com/playlist?list=PL4rQq4MQP1crXuPtruu_eijgOUUXhcUCP)
+* Webinar: [Neighborhood Map Walk-through Playlist, with Yahya Elharony (EMEA)](https://www.youtube.com/playlist?list=PLgOB68PvvmWCGNn8UMTpcfQEiITzxEEA1)
