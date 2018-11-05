@@ -2,8 +2,10 @@
 
 ## Project for Udacity's [Front-End Web Developer Nanodegree Program](https://www.udacity.com/course/front-end-web-developer-nanodegree--nd001)
 
-<!-- TODO:  Deploy project on live server; add link here. -->
-<!-- :link: [View Live Project](https://psittacine.github.io/neighborhood-map-react/) -->
+<!---
+TODO:  Deploy project on live server; add link here.
+:link: [View Live Project](https://psittacine.github.io/neighborhood-map-react/)
+-->
 
 #### Project Overview
 
