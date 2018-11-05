@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 
+// DOCS:  Error Boundaries -- https://reactjs.org/docs/error-boundaries.html
+
 class ErrorBoundary extends Component {
 	constructor(props) {
 		super(props);
